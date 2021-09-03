@@ -17,6 +17,9 @@ function isObjectType(obj) {
 class YupBuilder extends Base {
   constructor(schema, config = {}) {
     super(config);
+
+    if (config.locale) yup.setLocale(config.locale);
+
     this.schema = schema;
     const type = this.getType(schema);
     const props = this.getProps(schema);
